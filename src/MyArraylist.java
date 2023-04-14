@@ -25,16 +25,23 @@ public MyArraylist(){
 
     @Override
     public T get(int index) {
-        return null;
+        if (index >= length) throw new IndexOutOfBoundsException();
+
+        return (T)hiddenArr[index];
     }
 
     @Override
     public void remove(int index) {
+        if (index >= length) throw new IndexOutOfBoundsException();
 
+        for(int i = index; i < length - 1; i++){
+            hiddenArr[i] = hiddenArr[i+1];
+        }
+        length--;
     }
 
     @Override
     public int size() {
-        return 0;
+        return length;
     }
 }
