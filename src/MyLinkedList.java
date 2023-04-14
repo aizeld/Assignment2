@@ -69,17 +69,20 @@ public class MyLinkedList <T> implements MyList<T>{
             }
         }
     if(current.previous == null){
-        head = current.next
+        head = current.next;
     }else{
         current.previous.next = current.next;
     }
     if(current.next == null){
-        tail = current;
+        tail = current.previous;
+    }else{
+        current.previous.next = current.previous;
     }
+    size--; /// исправил баги, чето не грузилось
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 }
