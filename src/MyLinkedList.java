@@ -1,6 +1,6 @@
 public class MyLinkedList <T> implements MyList<T>{
 
-    private class Node(){
+    private class Node {
         T element;
         Node next;
         Node previous;
@@ -28,7 +28,7 @@ public class MyLinkedList <T> implements MyList<T>{
             head = tail;
         }else{
             Node newNode = new Node(element, tail, head);
-            tail.next = Node;
+            tail.next = newNode;
             tail = newNode;
         }
         size++;
@@ -36,12 +36,26 @@ public class MyLinkedList <T> implements MyList<T>{
 
     @Override
     public T get(int index) {
-        return null;
+    if(index < 0 || index >= size){
+        throw new IndexOutOfBoundsException();
+    }
+    Node current;
+    if (index < size / 2){
+        current = head;
+        for(int i =0; i < index; i++){
+            current = current.next;
+        }
+    }else{
+        current = tail;
+        for(int i = size - 1; i > index; i--){
+            current = current.previous;
+        }
+    }
+    return current.element;
     }
 
     @Override
     public void remove(int index) {
-
     }
 
     @Override
