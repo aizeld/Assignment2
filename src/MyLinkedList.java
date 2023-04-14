@@ -14,11 +14,24 @@ public class MyLinkedList <T> implements MyList<T>{
     private Node tail;
     private int size;
 
-    public MyLinkedList
+    public MyLinkedList(){
+        head = null;
+        tail = null;
+        size = 0;
+    }
 
     @Override
     public void add(T element) {
 
+        if(tail == null){
+            tail = new Node(element, null ,null);
+            head = tail;
+        }else{
+            Node newNode = new Node(element, tail, head);
+            tail.next = Node;
+            tail = newNode;
+        }
+        size++;
     }
 
     @Override
