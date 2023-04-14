@@ -56,6 +56,26 @@ public class MyLinkedList <T> implements MyList<T>{
 
     @Override
     public void remove(int index) {
+        Node current;
+        if(index < size /2 ){
+            current = head;
+            for(int i = 0 ; i < index; i++){
+                current = current.next;
+            }
+        }else{
+            current = tail;
+            for(int i = size - 1; i>index; i--){
+                current = current.previous;
+            }
+        }
+    if(current.previous == null){
+        head = current.next
+    }else{
+        current.previous.next = current.next;
+    }
+    if(current.next == null){
+        tail = current;
+    }
     }
 
     @Override
