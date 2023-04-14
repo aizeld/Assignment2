@@ -9,7 +9,18 @@ public MyArraylist(){
 
     @Override
     public void add(T element) {
+    if(length == hiddenArr.length){
+        Object[] new_elements = new Object[hiddenArr.length * 2]; /// created double size
 
+        for(int i = 0; i<hiddenArr.length; i++){
+            new_elements[i] = hiddenArr[i];
+        }
+        hiddenArr = new_elements;
+
+
+    }
+    hiddenArr[length] = element;
+    length++;
     }
 
     @Override
