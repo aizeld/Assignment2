@@ -28,6 +28,10 @@ public class Main {
         System.out.println("get eleement at index 2 " + list.get(2));
         list.remove(2);
         System.out.println("list size after removing " + list.size());
-        System.out.println(list.get(2));
+
+
+
+        int m = SumOfDigits.Sum(156);
+        System.out.println(m);
     }
 }
