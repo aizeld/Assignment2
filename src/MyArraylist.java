@@ -7,15 +7,22 @@ public MyArraylist(){
     length = 0;
 }
 
+
+    private void increaseArray() {
+        int biggerSize = (int)(hiddenArr.length * 2);
+        Object[] new_elements = new Object[biggerSize];
+
+        for (int i = 0; i < hiddenArr.length; i++) {
+            new_elements[i] = hiddenArr[i];
+        }
+
+        hiddenArr = new_elements;
+    }
+
     @Override
     public void add(T element) {
     if(length == hiddenArr.length){
-        Object[] new_elements = new Object[hiddenArr.length * 2]; /// created double size
-
-        for(int i = 0; i<hiddenArr.length; i++){
-            new_elements[i] = hiddenArr[i];
-        }
-        hiddenArr = new_elements;
+        increaseArray();
 
 
     }
@@ -44,4 +51,70 @@ public MyArraylist(){
     public int size() {
         return length;
     }
+
+    @Override
+    public boolean contains(Object o) {
+        for(int i =0 ; i < length; i++){
+           if(hiddenArr[i].equals(o)){
+               return true;
+           }
+        }
+        return false;
+    }
+
+    @Override
+    public void add(T element, int index) {
+        if(index > length || index < 0){
+            throw new IndexOutOfBoundsException();
+        }
+        if(length == hiddenArr.length){
+            increaseArray();
+        }
+        for(int i = length; i > index; i--){
+            hiddenArr[i] = hiddenArr[i-1];
+        }
+        hiddenArr[index] = element;
+        length++;
+    }
+
+    @Override
+    public void clear() {
+        hiddenArr = new Object[10];
+        length = 0;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+    int i;
+    for(i =0; i< length;i++){
+            if(hiddenArr[i].equals(o)){
+                return i;
+            };
+        }
+        return -1;
+    }
+
+
+
+    @Override
+    public void sort() {
+
+    }
+
+    @Override
+    public boolean remove(T element) {
+        int index = indexOf(element);
+        if(index == -1){
+            return false;
+        }
+        if(index >= length){
+            return false;
+        }
+        for(int i = index; i < length - 1; i++){
+            hiddenArr[i] = hiddenArr[i+1]
+        }
+        length--;
+        return true;
+    }
+
 }

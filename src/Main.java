@@ -31,7 +31,7 @@ public class Main {
 
 
 
-        int m = SumOfDigits.Sum(156);
+        int m = SumOfDigits.Sum(1356);
         System.out.println(m);
     }
 }
