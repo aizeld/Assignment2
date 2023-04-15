@@ -10,4 +10,6 @@ public interface MyList<T>{
 
     void sort();
     boolean remove(T element);
+
+
 }

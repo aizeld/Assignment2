@@ -1,4 +1,6 @@
-public class MyArraylist<T> implements MyList<T> {
+import java.util.Arrays;
+
+public class MyArraylist<T> implements MyList<T>{
 private Object[] hiddenArr;
 private int length;
 
@@ -89,7 +91,7 @@ public MyArraylist(){
     for(i =0; i< length;i++){
             if(hiddenArr[i].equals(o)){
                 return i;
-            };
+            }
         }
         return -1;
     }
@@ -98,7 +100,7 @@ public MyArraylist(){
 
     @Override
     public void sort() {
-
+        Arrays.sort(hiddenArr, 0, length);
     }
 
     @Override
@@ -111,10 +113,12 @@ public MyArraylist(){
             return false;
         }
         for(int i = index; i < length - 1; i++){
-            hiddenArr[i] = hiddenArr[i+1]
+            hiddenArr[i] = hiddenArr[i+1];
         }
         length--;
         return true;
     }
+
+
 
 }

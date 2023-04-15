@@ -24,11 +24,13 @@ public class Main {
         list.add(2554);
         list.add(324234);
         list.add(3);
+
         System.out.println("size of linked list " + list.size());
         System.out.println("get eleement at index 2 " + list.get(2));
         list.remove(2);
         System.out.println("list size after removing " + list.size());
-
+        list.add(667, 2);
+        System.out.println("2 index number " + list.get(2));
 
 
         int m = SumOfDigits.Sum(1356);

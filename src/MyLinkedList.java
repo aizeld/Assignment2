@@ -85,4 +85,83 @@ public class MyLinkedList <T> implements MyList<T>{
     public int size() {
         return size;
     }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    private Node getNode(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+
+        Node current;
+        if (index < size / 2) {
+            current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+        } else {
+            current = tail;
+            for (int i = size - 1; i > index; i--) {
+                current = current.previous;
+            }
+        }
+
+        return current;
+    }
+
+
+    @Override
+    public void add(T element, int index) {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+        Node newNode = new Node(element, null, null);
+        if (index == 0) {
+            newNode.next = head;
+            head.previous = newNode;
+            head = newNode;
+        } else {
+            Node node = getNode(index);
+            newNode.next = node;
+            newNode.previous = node.previous;
+            node.previous.next = newNode;
+            node.previous = newNode;
+        }
+        size++;
+
+
+
+
+    }
+
+    @Override
+    public void clear() {
+    head = null;
+    tail = null;
+    size = 0;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        Node current = head;
+        for(int i = 0; i < size; i++){
+            if(current.element.equals(o)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public void sort() {
+
+    }
+
+    @Override
+    public boolean remove(T element) {
+        return false;
+    }
 }
