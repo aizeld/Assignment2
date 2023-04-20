@@ -23,10 +23,10 @@ public class MyLinkedList <T> implements MyList<T>{
     @Override
     public void add(T element) {
 
-        if(tail == null){
+        if(tail == null){ /// если лист пустой
             tail = new Node(element, null ,null);
             head = tail;
-        }else{
+        }else{//если нет
             Node newNode = new Node(element, tail, head);
             tail.next = newNode;
             tail = newNode;
@@ -64,19 +64,19 @@ public class MyLinkedList <T> implements MyList<T>{
             }
         }else{
             current = tail;
-            for(int i = size - 1; i>index; i--){
+            for(int i = size - 1; i>index; i--) {
                 current = current.previous;
-            }
+            } /// cдесь мы ищем короткий путь чтобы дойти до этого числа
         }
     if(current.previous == null){
-        head = current.next;
+        head = current.next; // здесь мы проверяем слева нет ли числа, если есть, то подключаемся к левому
     }else{
-        current.previous.next = current.next;
+        current = current.previous;
     }
     if(current.next == null){
-        tail = current.previous;
+        tail = current.previous; // тоже самое
     }else{
-        current.previous.next = current.previous;
+        current = current.next;
     }
     size--; /// исправил баги, чето не грузилось
     }

@@ -35,7 +35,8 @@ public class Main {
 
         System.out.println("size of linked list " + list.size());
         System.out.println("get eleement at index 2 " + list.get(2));
-        list.remove(2);
+        list.remove(0);
+        System.out.println("removed 0 number" + list.get(0));
         System.out.println("list size after removing " + list.size());
         list.add(667, 2);
         System.out.println("2 index number " + list.get(2));
