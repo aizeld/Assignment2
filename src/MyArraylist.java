@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MyArraylist<T> implements MyList<T>{
 private Object[] hiddenArr;
@@ -103,6 +104,25 @@ public MyArraylist(){
         Arrays.sort(hiddenArr, 0, length);
     }
 
+
+    public void sortit(){
+    for(int i = 0 ; i < length- 1 ; i++){
+        for(int j = 0; j < length - i - 1; j ++){
+            if(((Comparable<T>) hiddenArr[j]).compareTo((T) hiddenArr[j+1]) > 0){
+                toswap(j, j+1);
+            }
+
+
+        }
+    }
+    }
+
+    private void toswap(int first, int second){
+        T temp = (T) hiddenArr[first];
+        hiddenArr[first] = hiddenArr[second];
+        hiddenArr[second] = temp;
+    }
+
     @Override
     public boolean remove(T element) {
         int index = indexOf(element);
@@ -118,6 +138,7 @@ public MyArraylist(){
         length--;
         return true;
     }
+
 
 
 

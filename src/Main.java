@@ -16,6 +16,14 @@ public class Main {
         System.out.println("element at index 2 is " + mylist.get(2));///7
         mylist.remove(2);
         System.out.println("checking the size after removing " + mylist.size());///2
+        mylist.add(4);
+        mylist.add(43);
+        mylist.add(433);
+        mylist.add(2);
+        mylist.sortit();
+        System.out.println("sorted list: " );
+        for(int i = 0; i < mylist.size(); i++) {System.out.print(mylist.get(i) + " ");}
+
 
         //////LINKED LIST
         System.out.println("LINKED LIST TEST BELOW");
@@ -32,6 +40,16 @@ public class Main {
         list.add(667, 2);
         System.out.println("2 index number " + list.get(2));
 
+        list.clear();
+        System.out.println("size of the list after clearing " + list.size());
+
+
+
+
+
+
+
+        ////////// DEFENCE
 
         int m = SumOfDigits.Sum(1356);
         System.out.println(m);
